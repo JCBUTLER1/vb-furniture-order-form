@@ -18,6 +18,9 @@
         Dim dblOrderPrice As Double
 
         'Validate the input into the textboxes.
+        If ValidateInput(strCustName, strStreet, strCity) Then
+
+        End If
     End Sub
 
 
