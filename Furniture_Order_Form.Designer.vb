@@ -154,7 +154,7 @@ Partial Class Furniture_Order_Form
         Me.lstDisplay.Size = New System.Drawing.Size(316, 225)
         Me.lstDisplay.TabIndex = 13
         '
-        'Form1
+        'Furniture_Order_Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -173,7 +173,7 @@ Partial Class Furniture_Order_Form
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Form1"
+        Me.Name = "Furniture_Order_Form"
         Me.Text = "Furniture Order Form"
         Me.ResumeLayout(False)
         Me.PerformLayout()

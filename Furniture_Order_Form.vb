@@ -17,12 +17,18 @@
         Dim dblTotalTax As Double
         Dim dblOrderPrice As Double
 
+        Dim strInvoiceId As String
+
         'Validate the input into the textboxes.
         If ValidateInput(strCustName, strStreet, strCity) Then
+            intChairs = CInt(txtChairs.Text)
+            intSofas = CInt(txtSofas.Text)
 
+            dblTotalDue = Calculate(intChairs, intSofas, dblTotalTax, dblOrderPrice)
+
+            strInvoiceId = InvoiceNumber()
         End If
     End Sub
-
 
     ''''''''''''''''''''''''''''''''FUNCTIONS'''''''''''''''''''''''''''''''''''''
 
@@ -39,5 +45,22 @@
         Else
             Return True
         End If
+    End Function
+
+
+    Function Calculate(intChairs As Integer, intSofas As Integer, ByRef dblTotalTax As Double, ByRef dblOrderPrice As Double) As Double
+        dblOrderPrice = (intChairs * dblCHAIR_PRICE) + (intSofas * dblSOFA_PRICE)
+        dblTotalTax = dblOrderPrice * dblSALE_TAX
+
+        Return dblOrderPrice + dblTotalTax
+    End Function
+
+
+    Function InvoiceNumber(strCustName As String, strCity As String) As String
+        Dim strZipDigits As String
+
+        strZipDigits = strCity.Substring(strCity.Length - 4)
+
+        Return strCustName.Substring(0, 2).ToUpper() & strZipDigits 'Start at the beginning of the string (0) and go forward (2) characters. Convert the characters to uppercase. Concatenate with the zip code digits.
     End Function
 End Class
